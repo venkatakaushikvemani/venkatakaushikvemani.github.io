@@ -97,6 +97,42 @@ main {
     animation: fadeInUp 0.8s ease-out;
 }
 
+.hero-intro {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.hero-image-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    width: 150px;
+}
+
+.hero-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--color-accent);
+    box-shadow: 0 8px 24px rgba(0, 212, 170, 0.2);
+    transition: transform var(--transition-smooth);
+    display: block;
+}
+
+.hero-image:hover {
+    transform: scale(1.05);
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
 .name-title {
     display: flex;
     flex-wrap: wrap;
@@ -129,10 +165,46 @@ main {
     font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--color-text-secondary);
     max-width: 100%;
-    margin-bottom: 0;
+    margin-bottom: var(--spacing-md);
     font-weight: 400;
     white-space: nowrap;
     overflow: visible;
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--spacing-xs);
+    width: 100%;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: rgba(0, 212, 170, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 170, 0.15);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
 }
 
 .hero-meta {
@@ -378,6 +450,80 @@ main {
     font-weight: 500;
 }
 
+/* Company Group Styles (for role transitions) */
+.company-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.company-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xs);
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.company-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.company-period {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 212, 170, 0.1);
+    border-radius: 4px;
+}
+
+.company-location {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.role-item {
+    margin-bottom: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.role-item:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.role-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.role-period {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.2rem 0.6rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
 .achievements {
     list-style: none;
 }
@@ -609,6 +755,47 @@ main {
     border-top: 1px solid var(--color-border);
 }
 
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.footer-social-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+}
+
+.footer-social-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: rgba(0, 212, 170, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 170, 0.15);
+}
+
+.footer-social-link svg {
+    width: 20px;
+    height: 20px;
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -642,6 +829,31 @@ main {
     
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .hero-intro {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--spacing-md);
+    }
+    
+    .hero-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .hero-text {
+        width: 100%;
+    }
+    
+    .tagline {
+        white-space: normal;
+        font-size: 0.95rem;
+    }
+    
+    .social-links {
+        justify-content: center;
     }
     
     .name-title {
